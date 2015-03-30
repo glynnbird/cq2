@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cloudant Query - Step 4</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="cq2.css">
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="cq2.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1>Cloudant Query Tutorial</h1>
+      <h2>Step 4 - Try it yourself</h2>
+    </div>
+    
+    <p>Create a query yourself and press <a id="step4firstbutton" class="btn btn-success" href="Javascript:step4()" role="button"> Query</button></a> to execute it:
+    </p>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <h3>Query</h3>
+        <textarea id="step4query">
+{ 
+ "selector": { 
+  "Movie_year" : { 
+   "$lt": 2012 
+  } 
+ } 
+}
+        </textarea>
+      </div>
+      <div class="col-xs-6">
+        <h3>Response</h3>
+        <pre id="step4response">
+        </pre>
+      </div>
+    </div>        
+     
+    
+  </div>
+</body>
+</html>

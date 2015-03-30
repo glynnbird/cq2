@@ -1,0 +1,42 @@
+body { margin-top:50px;}
+
+#step1hidden {
+  display: none;
+}
+#step2hidden {
+  display: none;
+}
+#step3hidden {
+  display:none ;
+}
+
+
+#step2query {
+  height:300px;
+}
+#step2response {
+  height: 300px;
+  overflow: scroll;
+}
+
+#step3query {
+  height:300px;
+}
+#step3response {
+  height: 300px;
+  overflow: scroll;
+}
+
+#step4query {
+  height:300px;
+  width:100%;
+  font-family: "Courier New", Courier, monospace
+  
+}
+#step4response {
+  height: 300px;
+  overflow: scroll;
+}
+.querylist li {
+  margin-bottom:10px;
+}

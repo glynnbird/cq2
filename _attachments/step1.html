@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cloudant Query - Step 1</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="cq2.css">
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="cq2.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1>Cloudant Query Tutorial</h1>
+      <h2>Step 1 - Create the Index</h2>
+    </div>
+    <p>Our 'movies' database contains nearly three thousand documents of this form:</p>
+    <pre>
+    {
+      "_id": "df8cecd9809662d08eb853989a000610",
+      "_rev": "1-80f442093664ca1c8f70636cca8a5e1c",
+      "Movie_runtime": 152,
+      "Movie_rating": "PG-13",
+      "Person_name": "Aaron Eckhart",
+      "Actor_actor_id": "0001173",
+      "Movie_genre": "AT",
+      "Movie_name": "The Dark Knight",
+      "Actor_movie_id": "0468569",
+      "Movie_earnings_rank": "4",
+      "Person_pob": "Cupertino, California, USA",
+      "Person_id": "0001173",
+      "Movie_id": "0468569",
+      "Movie_year": 2008,
+      "Person_dob": "1968-03-12"
+    }
+    </pre>
+    <p>The first thing we need to do is to instruct Cloudant to index each field within the object. We do this by posting some JSON to the the /movies/_index endpoint. In curl this would look like this:
+      
+    <pre>
+      curl -X POST https://myaccount.cloudant.com/movies/_index -d '{ "index": {}, "type": "text"}'
+    </pre>
+    
+    <p>In the above example we are not specifying which fields to index, so Cloudant will index all fields. Click the button below to perform this API call.</p>
+    <p><a id="step1button" class="btn btn-primary btn-lg" href="Javascript:step1()" role="button">Create Index</button> </a></p>
+    
+    <div id="step1hidden">
+      The server responded with:
+      <pre id="step1response">
+        
+      </pre>
+      
+      <p>We can now proceed to Step 2 - Querying:</p>
+      <p><a class="btn btn-primary btn-lg" href="step2.html" role="button">Step 2 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button> </a></p>
+      
+    </div>
+    
+    
+  </div>
+</body>
+</html>

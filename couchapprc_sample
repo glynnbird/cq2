@@ -1,0 +1,7 @@
+{
+  "env": {
+    "remote": {
+      "db":"https://myusername:mypassword@myhost.cloudant.com/mydatabase”
+    }
+  }
+}

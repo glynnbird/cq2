@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cloudant Query - Step 2</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="cq2.css">
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="cq2.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1>Cloudant Query Tutorial</h1>
+      <h2>Step 2 - Querying</h2>
+    </div>
+    <p>We can query our index by posting some JSON to the the /movies/_find endpoint. In curl this would look like this:
+      
+    <pre>
+      curl -X POST https://myaccount.cloudant.com/movies/_find -d '{ "selector": { "Movie_year": 2012 }}'
+    </pre>
+    
+    <p>In the above example, we are looking for movies released in 2012. Try this query  and others by clicking the buttons below. The request and responses will appear below:</p>
+    <div class="row">
+      <div class="col-xs-6">
+        <ul class="list-unstyled querylist">
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(1)" role="button"> Movie_year = 2012</button></a>
+          </li>
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(2)" role="button"> Movie_year = 2012 AND Movie_rating = 'R'</button> </a>
+          </li>
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(3)" role="button"> Freetext search for 'Robert'</button> </a>
+          </li>
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(4)" role="button"> Person_name = 'Robert de Niro' ordered by Movie_year</button> </a>
+          </li>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <ul class="list-unstyled querylist">
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(5)" role="button"> Movie_year < 2012</button></a>
+          </li>
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(6)" role="button"> Movie_year < 2012 AND Movie_rating != 'R'</button> </a>
+          </li>
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(7)" role="button"> Person_name = 'Robert de Niro' or 'Robert Duvall'</button> </a>
+          </li>
+          <li>
+            <a class="btn btn-success" href="Javascript:step2(8)" role="button"> Freetext match 'Julia', only two fields</button> </a>
+          </li>
+        </p>
+      </div>
+    </div>
+
+    
+    <div id="step2hidden">
+      <div class="row">
+        <div class="col-xs-6">
+          <h3>Query</h3>
+          <pre id="step2query">
+          </pre>
+        </div>
+        <div class="col-xs-6">
+          <h3>Response</h3>
+          <pre id="step2response">
+          </pre>
+        </div>
+      </div>        
+     
+      <hr />
+      
+      <p>We can now proceed to Step 3 - Pagination:</p>
+      <p><a class="btn btn-primary btn-lg" href="step3.html" role="button">Step 3 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button> </a></p>
+      
+    </div>
+    
+    
+  </div>
+</body>
+</html>
