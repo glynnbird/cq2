@@ -19,23 +19,34 @@
     </div>
     <p>Our 'movies' database contains nearly three thousand documents of this form:</p>
     <pre>
-    {
-      "_id": "df8cecd9809662d08eb853989a000610",
-      "_rev": "1-80f442093664ca1c8f70636cca8a5e1c",
-      "Movie_runtime": 152,
-      "Movie_rating": "PG-13",
-      "Person_name": "Aaron Eckhart",
-      "Actor_actor_id": "0001173",
-      "Movie_genre": "AT",
-      "Movie_name": "The Dark Knight",
-      "Actor_movie_id": "0468569",
-      "Movie_earnings_rank": "4",
-      "Person_pob": "Cupertino, California, USA",
-      "Person_id": "0001173",
-      "Movie_id": "0468569",
-      "Movie_year": 2008,
-      "Person_dob": "1968-03-12"
-    }
+      {
+          "_id": "304415",
+          "_rev": "1-c5d63b15884b41a6b7cb7239fdac00d1",
+          "title": "Mona Lisa Smile",
+          "year": 2003,
+          "rating": "PG-13",
+          "runtime": "117 min",
+          "genre": [
+              "Drama"
+          ],
+          "director": "Mike Newell",
+          "writer": [
+              "Lawrence Konner",
+              "Mark Rosenthal"
+          ],
+          "cast": [
+              "Julia Roberts",
+              "Kirsten Dunst",
+              "Julia Stiles",
+              "Maggie Gyllenhaal"
+          ],
+          "poster": "http://ia.media-imdb.com/images/M/MV5BMTI0NjEwNDgwOV5BMl5BanBnXkFtZTYwOTI1NTA3._V1_SX300.jpg",
+          "imdb": {
+              "rating": 6.4,
+              "votes": 55,
+              "id": "tt0304415"
+          }
+      }
     </pre>
     <p>The first thing we need to do is to instruct Cloudant to index each field within the object. We do this by posting some JSON to the the /movies/_index endpoint. In curl this would look like this:
       

@@ -26,32 +26,29 @@ var step2 = function(q) {
   var find = null;
   switch(q) {
     case 1: 
-      find = { selector:{ Movie_year: 2012 } };
+      find = { selector:{ year: 2012 }, limit:10 };
       break;
     case 2: 
-      find = { selector:{ Movie_year: 2012, Movie_rating:"R" } };
+      find = { selector:{ year: 2012, rating: "R" } , limit:10};
       break;  
     case 3: 
-      find = { selector:{ "$text": "Robert" } };
+      find = { selector:{ "$text": "Robert de Niro" } , limit:10};
       break;    
     case 4:
-      find = { selector: { "Person_name": "Robert De Niro"}, sort: [ { "Movie_year:number": "asc"}]};
+      find = { selector: { cast: { "$in": [ "Robert De Niro" ] }},  sort: [ { "year:number": "asc"}], limit:10} ;
       break;
     case 5:
-      find = { selector:{ Movie_year: { "$lt": 2012 } } };
+      find = { selector:{ year: { "$lt": 2012 } } , limit:10};
       break;
     case 6:
-      find = { selector:{ Movie_year: { "$lt": 2012 }, Movie_rating: { "$ne": "R" } } };
+      find = { selector:{ year: { "$lt": 2012 }, rating: { "$ne": "R" } } , limit:10};
       break;
     case 7:
-      find = { selector: { "Person_name": { "$in":  ["Robert De Niro", "Robert Duvall"] } } };
+      find = { selector: { cast: { "$in":  ["Robert De Niro", "Robert Duvall"] } }, limit:10 };
       break;
     case 8:
-      find = { selector: { "$text": "Julia" }, fields: [ "Movie_name", "Movie_year" ],  sort: [ { "Movie_year:number": "desc"}] };
+      find = { selector: { cast: { "$in": ["Julia Roberts"] } }, fields: [ "title", "year" ],  sort: [ { "year:number": "desc"}], limit:10 };
       break;  
-      
-      
-      
   }
   $('#step2query').html(JSON.stringify(find,null," "));
   $('#step2hidden').show();
@@ -71,8 +68,8 @@ var step2 = function(q) {
 var bookmark = null;
 var step3first = function() {
   var find = { 
-               selector: { "Movie_year": { "$gt": 1970 }}, 
-               sort: [ { "Movie_year:number": "asc"}], 
+               selector: { "year": { "$gt": 1970 }}, 
+               sort: [ { "year:number": "asc"}], 
                limit: 10 
              };
   $('#step3firstbutton').attr("disabled", true);
@@ -97,8 +94,8 @@ var step3first = function() {
 
 var step3next = function() {
   var find = { 
-               selector: { "Movie_year": { "$gt": 1970 }}, 
-               sort: [ { "Movie_year:number": "asc"}], 
+               selector: { "year": { "$gt": 1970 }}, 
+               sort: [ { "year:number": "asc"}], 
                limit: 10,
                bookmark: bookmark
              };
@@ -127,7 +124,9 @@ var step4 = function() {
     alert('Invalid JSON');
     return;
   }
-  
+  if(!q.limit) {
+    q.limit = 10;
+  }
   $('#step4response').html("");
   $('#step4query').val(JSON.stringify(q,null," "));
   $.ajax({
@@ -139,5 +138,7 @@ var step4 = function() {
   }).done(function( msg ) {
     $('#step4response').html(JSON.stringify(msg,null," "))
     scrollDown();
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    console.log(jqXHR, textStatus, errorThrown);
   });
 }

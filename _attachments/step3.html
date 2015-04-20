@@ -22,13 +22,13 @@
       
     <p>The first request asks for movies made after 1970, sorted by year, in blocks of 10:</p>   
     <pre>
-      curl -X POST https://myaccount.cloudant.com/movies/_find -d '{ "selector": { "Movie_year": { "$gt": 1970 }}, 
-               "sort": [ { "Movie_year:number": "asc"}], "limit": 10 }'
+      curl -X POST https://myaccount.cloudant.com/movies/_find -d '{ "selector": { "year": { "$gt": 1970 }}, 
+               "sort": [ { "year:number": "asc"}], "limit": 10 }'
     </pre>
     <p>The second request contains the same query elements but adds the 'bookmark' received in the first request's response:</p>
     <pre>
-      curl -X POST https://myaccount.cloudant.com/movies/_find -d '{ "selector": { "Movie_year": { "$gt": 1970 }}, 
-               "sort": [ { "Movie_year:number": "asc"}], "limit": 10, 
+      curl -X POST https://myaccount.cloudant.com/movies/_find -d '{ "selector": { "year": { "$gt": 1970 }}, 
+               "sort": [ { "year:number": "asc"}], "limit": 10, 
                <b>"bookmark":"g1AAAAJGeJzLYWBg4MhgTmFQSElKzi9KdUhJMtYrSS0uqTQwMNFLzskvTUnMK9HLSy3JAapkSmRIkv"</b>}'
     </pre>
     

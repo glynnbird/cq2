@@ -20,7 +20,7 @@
     <p>We can query our index by posting some JSON to the the /movies/_find endpoint. In curl this would look like this:
       
     <pre>
-      curl -X POST https://myaccount.cloudant.com/movies/_find -d '{ "selector": { "Movie_year": 2012 }}'
+      curl -X POST https://myaccount.cloudant.com/movies/_find -d '{ "selector": { "year": 2012 }}'
     </pre>
     
     <p>In the above example, we are looking for movies released in 2012. Try this query  and others by clicking the buttons below. The request and responses will appear below:</p>
@@ -28,32 +28,32 @@
       <div class="col-xs-6">
         <ul class="list-unstyled querylist">
           <li>
-            <a class="btn btn-success" href="Javascript:step2(1)" role="button"> Movie_year = 2012</button></a>
+            <a class="btn btn-success" href="Javascript:step2(1)" role="button"> year = 2012</button></a>
           </li>
           <li>
-            <a class="btn btn-success" href="Javascript:step2(2)" role="button"> Movie_year = 2012 AND Movie_rating = 'R'</button> </a>
+            <a class="btn btn-success" href="Javascript:step2(2)" role="button"> year = 2012 AND rating = 'R'</button> </a>
           </li>
           <li>
-            <a class="btn btn-success" href="Javascript:step2(3)" role="button"> Freetext search for 'Robert'</button> </a>
+            <a class="btn btn-success" href="Javascript:step2(3)" role="button"> Freetext search for 'Robert de Niro'</button> </a>
           </li>
           <li>
-            <a class="btn btn-success" href="Javascript:step2(4)" role="button"> Person_name = 'Robert de Niro' ordered by Movie_year</button> </a>
+            <a class="btn btn-success" href="Javascript:step2(4)" role="button"> cast = 'Robert de Niro' ordered by Movie_year</button> </a>
           </li>
         </p>
       </div>
       <div class="col-xs-6">
         <ul class="list-unstyled querylist">
           <li>
-            <a class="btn btn-success" href="Javascript:step2(5)" role="button"> Movie_year < 2012</button></a>
+            <a class="btn btn-success" href="Javascript:step2(5)" role="button"> year < 2012</button></a>
           </li>
           <li>
-            <a class="btn btn-success" href="Javascript:step2(6)" role="button"> Movie_year < 2012 AND Movie_rating != 'R'</button> </a>
+            <a class="btn btn-success" href="Javascript:step2(6)" role="button"> year < 2012 AND rating != 'R'</button> </a>
           </li>
           <li>
-            <a class="btn btn-success" href="Javascript:step2(7)" role="button"> Person_name = 'Robert de Niro' or 'Robert Duvall'</button> </a>
+            <a class="btn btn-success" href="Javascript:step2(7)" role="button"> cast = 'Robert de Niro' or 'Robert Duvall'</button> </a>
           </li>
           <li>
-            <a class="btn btn-success" href="Javascript:step2(8)" role="button"> Freetext match 'Julia', only two fields</button> </a>
+            <a class="btn btn-success" href="Javascript:step2(8)" role="button"> Freetext match 'Julia Roberts', only two fields</button> </a>
           </li>
         </p>
       </div>
